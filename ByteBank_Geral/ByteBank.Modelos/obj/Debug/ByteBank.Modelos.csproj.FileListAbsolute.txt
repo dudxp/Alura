@@ -1,0 +1,7 @@
+C:\Users\boeied\Documents\GitHub\Alura\ByteBank_Geral\ByteBank.Modelos\bin\Debug\ByteBank.Modelos.xml
+C:\Users\boeied\Documents\GitHub\Alura\ByteBank_Geral\ByteBank.Modelos\bin\Debug\ByteBank.Modelos.dll
+C:\Users\boeied\Documents\GitHub\Alura\ByteBank_Geral\ByteBank.Modelos\bin\Debug\ByteBank.Modelos.pdb
+C:\Users\boeied\Documents\GitHub\Alura\ByteBank_Geral\ByteBank.Modelos\obj\Debug\ByteBank.Modelos.csproj.AssemblyReference.cache
+C:\Users\boeied\Documents\GitHub\Alura\ByteBank_Geral\ByteBank.Modelos\obj\Debug\ByteBank.Modelos.csproj.CoreCompileInputs.cache
+C:\Users\boeied\Documents\GitHub\Alura\ByteBank_Geral\ByteBank.Modelos\obj\Debug\ByteBank.Modelos.dll
+C:\Users\boeied\Documents\GitHub\Alura\ByteBank_Geral\ByteBank.Modelos\obj\Debug\ByteBank.Modelos.pdb
