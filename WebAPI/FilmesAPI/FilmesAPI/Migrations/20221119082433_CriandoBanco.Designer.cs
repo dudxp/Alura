@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221116160932_CriandoTudo")]
-    partial class CriandoTudo
+    [Migration("20221119082433_CriandoBanco")]
+    partial class CriandoBanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
