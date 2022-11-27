@@ -2,9 +2,9 @@
 using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
+using FilmesAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace FilmesAPI.Controllers
 {
@@ -12,53 +12,42 @@ namespace FilmesAPI.Controllers
     [Route("[controller]")]
     public class GerenteController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
-
+        private GerenteService _gerenteService;
         public GerenteController(AppDbContext context, IMapper mapper)
         {
-            _context = context;
-            _mapper = mapper;
+            _gerenteService = new GerenteService(context, mapper);
         }
 
         [HttpPost]
         public IActionResult AdicionaGerente([FromBody] CreateGerenteDto gerenteDto)
         {
-            Gerente gerente = _mapper.Map<Gerente>(gerenteDto);
-            _context.Gerentes.Add(gerente);
-            _context.SaveChanges();
+            Gerente gerente = _gerenteService.AdicionaGerente(gerenteDto);
             return CreatedAtAction(nameof(RecuperaGerentesPorId), new { Id = gerente.Id }, gerente);
         }
 
         [HttpGet]
-        public IEnumerable<Gerente> RecuperaGerentes()
+        public IActionResult RecuperaGerentes([FromBody] string nome)
         {
-            return _context.Gerentes;
+            List<ReadGerenteDto> gerentes = _gerenteService.RecuperaGerentes(nome);
+            if (gerentes == null) return NotFound();
+            return Ok(gerentes);
         }
 
         [HttpGet("{id}")]
         public IActionResult RecuperaGerentesPorId(int id)
         {
-            Gerente Gerente = _context.Gerentes.FirstOrDefault(Gerente => Gerente.Id == id);
-            if (Gerente != null)
-            {
-                ReadGerenteDto GerenteDto = _mapper.Map<ReadGerenteDto>(Gerente);
-                return Ok(GerenteDto);
-            }
-            return NotFound();
+            ReadGerenteDto gerente = _gerenteService.RecuperaGerentesPorId(id);
+            if (gerente == null) return NotFound();
+            return Ok(gerente);
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletaGerente(int id)
         {
-            Gerente Gerente = _context.Gerentes.FirstOrDefault(Gerente => Gerente.Id == id);
-            if (Gerente == null)
-            {
-                return NotFound();
-            }
-            _context.Remove(Gerente);
-            _context.SaveChanges();
+            Gerente gerente = _gerenteService.DeletaGerente(id);
+            if (gerente == null) return NotFound();    
             return NoContent();
+            
         }
     }
 }

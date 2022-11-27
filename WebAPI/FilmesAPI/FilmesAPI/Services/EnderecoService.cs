@@ -1,0 +1,87 @@
+﻿using AutoMapper;
+using Castle.Core.Internal;
+using FilmesAPI.Data;
+using FilmesAPI.Data.Dtos;
+using FilmesAPI.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace FilmesAPI.Services
+{
+    public class EnderecoService
+    {
+        public AppDbContext _context;
+        public IMapper _mapper;
+
+        public EnderecoService(AppDbContext context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+        }
+
+        public Endereco AdicionaEndereco(CreateEnderecoDto enderecoDto)
+        {
+            Endereco endereco = _mapper.Map<Endereco>(enderecoDto);
+            _context.Enderecos.Add(endereco);
+            _context.SaveChanges();
+            return endereco;
+        }
+
+        public List<ReadEnderecoDto> RecuperaEnderecos(string nomeDoEndereco)
+        {
+            List<Endereco> enderecos;
+            if (string.IsNullOrEmpty(nomeDoEndereco))
+            {
+                enderecos = _context.Enderecos.ToList();
+            }
+            else
+            {
+
+                enderecos = _context
+                    .Enderecos.Where(endereco => endereco.Logradouro == nomeDoEndereco).ToList();
+            }
+
+            if (enderecos == null) return null;
+            else
+            {
+                List<ReadEnderecoDto> readDto = _mapper.Map<List<ReadEnderecoDto>>(enderecos);
+                return readDto;
+            }
+        }
+        public ReadEnderecoDto RecuperaEnderecosPorId(int id)
+        {
+            Endereco endereco = _context.Enderecos.FirstOrDefault(endereco => endereco.Id == id);
+            if (endereco != null)
+            {
+                ReadEnderecoDto enderecoDto = _mapper.Map<ReadEnderecoDto>(endereco);
+                return enderecoDto;
+            }
+            return null;
+        }
+
+        public Endereco AtualizaEndereco(int id, UpdateEnderecoDto enderecoDto)
+        {
+            Endereco endereco = _context.Enderecos.FirstOrDefault(Endereco => Endereco.Id == id);
+            if (endereco == null)
+            {
+                return null;
+            }
+            _mapper.Map(enderecoDto, endereco);
+            _context.SaveChanges();
+            return endereco;
+        }
+
+        public Endereco DeletaEndereco(int id)
+        {
+            Endereco endereco = _context.Enderecos.FirstOrDefault(Endereco => Endereco.Id == id);
+            if (endereco == null)
+            {
+                return null;
+            }
+            _context.Remove(endereco);
+            _context.SaveChanges();
+            return endereco;
+        }
+    }
+}
