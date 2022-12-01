@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using FilmesAPI.Data.Dtos.Sessao;
+using FilmesAPI.Services;
 
 namespace FilmesAPI.Controllers
 {
@@ -15,19 +16,17 @@ namespace FilmesAPI.Controllers
     {
         private AppDbContext _context;
         private IMapper _mapper;
+        private SessaoService _sessaoService;
 
         public SessaoController(AppDbContext context, IMapper mapper)
         {
-            _context = context;
-            _mapper = mapper;
+            _sessaoService = new SessaoService(context, mapper);
         }
 
         [HttpPost]
         public IActionResult AdicionaSessao([FromBody] CreateSessaoDto sessaoDto)
         {
-            Sessao sessao = _mapper.Map<Sessao>(sessaoDto);
-            _context.Sessoes.Add(sessao);
-            _context.SaveChanges();
+            Sessao sessao = _sessaoService.AdicionaSessao(sessaoDto);
             return CreatedAtAction(nameof(RecuperaSessaoPorId), new { Id = sessao.Id }, sessao);
         }
 
