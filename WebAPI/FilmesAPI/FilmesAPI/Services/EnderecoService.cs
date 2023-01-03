@@ -3,6 +3,7 @@ using Castle.Core.Internal;
 using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
+using FluentResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,28 +61,28 @@ namespace FilmesAPI.Services
             return null;
         }
 
-        public Endereco AtualizaEndereco(int id, UpdateEnderecoDto enderecoDto)
+        public Result AtualizaEndereco(int id, UpdateEnderecoDto enderecoDto)
         {
             Endereco endereco = _context.Enderecos.FirstOrDefault(Endereco => Endereco.Id == id);
             if (endereco == null)
             {
-                return null;
+                return Result.Fail("Endereço não encontrado");
             }
             _mapper.Map(enderecoDto, endereco);
             _context.SaveChanges();
-            return endereco;
+            return Result.Ok();
         }
 
-        public Endereco DeletaEndereco(int id)
+        public Result DeletaEndereco(int id)
         {
             Endereco endereco = _context.Enderecos.FirstOrDefault(Endereco => Endereco.Id == id);
             if (endereco == null)
             {
-                return null;
+                return Result.Fail("Endereço não encontrado");
             }
             _context.Remove(endereco);
             _context.SaveChanges();
-            return endereco;
+            return Result.Ok();
         }
     }
 }

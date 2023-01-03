@@ -30,8 +30,6 @@ C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\K4os.Compression.LZ4.Streams.dll
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\K4os.Hash.xxHash.dll
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\MySql.Data.dll
-C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Ubiety.Dns.Core.dll
-C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\ZstdNet.dll
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\BouncyCastle.Crypto.dll
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
@@ -104,3 +102,18 @@ C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Zstandard.Net.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\FilmesAPI.StaticWebAssets.Pack.cache
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\msbuild.FilmesAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\msbuild.build.FilmesAPI.props
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.FilmesAPI.props
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.FilmesAPI.props
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\ZstdNet.dll
+C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\FluentResults.dll

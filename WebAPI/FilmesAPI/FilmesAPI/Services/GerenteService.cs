@@ -2,6 +2,7 @@
 using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
+using FluentResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,16 +61,16 @@ namespace FilmesAPI.Services
             return null;
         }
 
-        internal Gerente DeletaGerente(int id)
+        public Result DeletaGerente(int id)
         {
             Gerente gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == id);
             if (gerente == null)
             {
-                return null;
+                return Result.Fail("Gerente não encontrado");
             }
             _context.Remove(gerente);
             _context.SaveChanges();
-            return gerente;
+            return Result.Ok();
         }
     }
 }

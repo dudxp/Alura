@@ -4,6 +4,7 @@ using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
 using FilmesAPI.Services;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace FilmesAPI.Controllers
     public class EnderecoController : ControllerBase
     {
         private EnderecoService _enderecoService;
-        public EnderecoController(AppDbContext context, IMapper mapper)
+        public EnderecoController (EnderecoService enderecoService)
         {
-            _enderecoService = new EnderecoService(context, mapper);
+            _enderecoService = enderecoService;
         }
 
         [HttpPost]
@@ -46,8 +47,8 @@ namespace FilmesAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult AtualizaEndereco(int id, [FromBody] UpdateEnderecoDto EnderecoDto)
         {
-            Endereco Endereco = _enderecoService.AtualizaEndereco(id, EnderecoDto);
-            if (Endereco == null) return NotFound();
+            Result resultado = _enderecoService.AtualizaEndereco(id, EnderecoDto);
+            if (resultado.IsFailed) return NotFound();
             return NoContent();
         }
 
@@ -55,8 +56,8 @@ namespace FilmesAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletaEndereco(int id)
         {
-            Endereco endereco = _enderecoService.DeletaEndereco(id);
-            if (endereco == null) return NotFound();
+            Result resultado = _enderecoService.DeletaEndereco(id);
+            if (resultado.IsFailed) return NotFound();
             return NoContent();
         }
     }
