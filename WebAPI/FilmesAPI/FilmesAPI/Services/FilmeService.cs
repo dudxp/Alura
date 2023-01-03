@@ -2,6 +2,7 @@
 using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
+using FluentResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace FilmesAPI.Services
         private AppDbContext _context;
         private IMapper _mapper;
 
-        public FilmeService(AppDbContext context, IMapper mapper)
+        public FilmeService (AppDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -63,26 +64,26 @@ namespace FilmesAPI.Services
             }
         }
 
-        public Filme AtualizarFilme(int id, UpdateFilmeDto filmeDto)
+        public Result AtualizarFilme(int id, UpdateFilmeDto filmeDto)
         {
             Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
             if (filme == null)
             {
-                return null;
+                return Result.Fail("Filme não encontrado");
             }
-            return filme;
+            return Result.Ok();
         }
 
-        public Filme DeletarFilme(int id)
+        public Result DeletarFilme(int id)
         {
             Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
             if (filme == null)
             {
-                return null;
+                return Result.Fail("Filme não encontrado");
             }
             _context.Remove(filme);
             _context.SaveChanges();
-            return filme;
+            return Result.Ok();
         }
     }
 }

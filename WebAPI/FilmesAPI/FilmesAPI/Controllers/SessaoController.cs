@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FilmesAPI.Data.Dtos.Sessao;
 using FilmesAPI.Services;
+using FluentResults;
 
 namespace FilmesAPI.Controllers
 {
@@ -14,13 +15,11 @@ namespace FilmesAPI.Controllers
     [Route("[controller]")]
     public class SessaoController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
         private SessaoService _sessaoService;
-
-        public SessaoController(AppDbContext context, IMapper mapper)
+        
+        public SessaoController (SessaoService sessaoService)
         {
-            _sessaoService = new SessaoService(context, mapper);
+            _sessaoService = sessaoService;
         }
 
         [HttpPost]
@@ -31,33 +30,27 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Sessao> RecuperaSessoes([FromQuery] string placeholder)
+        public IActionResult RecuperaSessoes([FromQuery] string nomeCinema, [FromQuery] string nomeFilme)
         {
-            return _context.Sessoes;
+            List<ReadSessaoDto> sessoesDto = _sessaoService.RecuperaSessoes(nomeCinema, nomeFilme);
+
+            if (sessoesDto == null) return NotFound();
+            return Ok(sessoesDto);
         }
 
         [HttpGet("{id}")]
         public IActionResult RecuperaSessaoPorId(int id)
         {
-            Sessao Sessao = _context.Sessoes.FirstOrDefault(Sessao => Sessao.Id == id);
-            if (Sessao != null)
-            {
-                ReadSessaoDto SessaoDto = _mapper.Map<ReadSessaoDto>(Sessao);
-                return Ok(SessaoDto);
-            }
-            return NotFound();
+            ReadSessaoDto SessaoDto = _sessaoService.RecuperaSessaoPorId(id);
+            if (SessaoDto == null) return NotFound();
+            return Ok(SessaoDto);
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletaSessao(int id)
         {
-            Sessao Sessao = _context.Sessoes.FirstOrDefault(Sessao => Sessao.Id == id);
-            if (Sessao == null)
-            {
-                return NotFound();
-            }
-            _context.Remove(Sessao);
-            _context.SaveChanges();
+            Result resultado = _sessaoService.DeletaSessao(id);
+            if (resultado.IsFailed) return NotFound();
             return NoContent();
         }
     }

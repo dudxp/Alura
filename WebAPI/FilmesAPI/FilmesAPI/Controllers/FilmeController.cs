@@ -4,6 +4,7 @@ using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
 using FilmesAPI.Profiles;
 using FilmesAPI.Services;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using System;
@@ -20,9 +21,9 @@ namespace FilmesAPI.Controllers
     {
         private FilmeService _filmeService;
 
-        public FilmeController(AppDbContext context, IMapper mapper)
+        public FilmeController (FilmeService filmeService)
         {
-            _filmeService = new FilmeService(context,mapper);
+            _filmeService = filmeService;
         }
 
         [HttpPost]
@@ -51,20 +52,16 @@ namespace FilmesAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult AtualizarFilme(int id, [FromBody] UpdateFilmeDto filmeDto) 
         {
-            Filme filme = _filmeService.AtualizarFilme(id, filmeDto);
-            if (filme == null) return NotFound();
+            Result resultado = _filmeService.AtualizarFilme(id, filmeDto);
+            if (resultado.IsFailed) return NotFound();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletarFilme(int id)
         {
-            Filme filme = _filmeService.DeletarFilme(id);
-            if (filme == null)
-            {
-                return NotFound();
-            }
-
+            Result resultado = _filmeService.DeletarFilme(id);
+            if (resultado.IsFailed) return NotFound();
             return NoContent();
         }
 

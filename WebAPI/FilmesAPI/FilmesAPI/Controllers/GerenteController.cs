@@ -3,6 +3,7 @@ using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
 using FilmesAPI.Services;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -13,9 +14,9 @@ namespace FilmesAPI.Controllers
     public class GerenteController : ControllerBase
     {
         private GerenteService _gerenteService;
-        public GerenteController(AppDbContext context, IMapper mapper)
+        public GerenteController (GerenteService gerenteService)
         {
-            _gerenteService = new GerenteService(context, mapper);
+            _gerenteService = gerenteService;
         }
 
         [HttpPost]
@@ -44,8 +45,8 @@ namespace FilmesAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletaGerente(int id)
         {
-            Gerente gerente = _gerenteService.DeletaGerente(id);
-            if (gerente == null) return NotFound();    
+            Result resultado = _gerenteService.DeletaGerente(id);
+            if (resultado.IsFailed) return NotFound();    
             return NoContent();
             
         }
