@@ -27,7 +27,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult RecuperaGerentes([FromBody] string nome)
+        public IActionResult RecuperaGerentes([FromQuery] string nome)
         {
             List<ReadGerenteDto> gerentes = _gerenteService.RecuperaGerentes(nome);
             if (gerentes == null) return NotFound();
