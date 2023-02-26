@@ -5,6 +5,7 @@ using FilmesAPI.Models;
 using FluentResults;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace FilmesAPI.Services
@@ -23,7 +24,6 @@ namespace FilmesAPI.Services
         public Filme AdicionaFilme(CreateFilmeDto filmeDto)
         {
             Filme filme = _mapper.Map<Filme>(filmeDto);
-
             _context.Filmes.Add(filme);
             _context.SaveChanges();
             return filme;

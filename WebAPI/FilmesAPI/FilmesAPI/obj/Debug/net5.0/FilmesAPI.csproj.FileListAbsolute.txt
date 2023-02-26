@@ -67,7 +67,6 @@ C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\MySql.Data.dll
-C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Ubiety.Dns.Core.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\MySql.EntityFrameworkCore.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\BouncyCastle.Crypto.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -99,7 +98,6 @@ C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Zstandard.Net.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\Castle.Core.dll
@@ -117,3 +115,5 @@ C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\obj\Debug\net5
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.FilmesAPI.props
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\ZstdNet.dll
 C:\Users\boeied\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\FluentResults.dll
+C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\FluentResults.dll
+C:\Users\dud_b\Documents\GitHub\Alura\WebAPI\FilmesAPI\FilmesAPI\bin\Debug\net5.0\ZstdNet.dll
