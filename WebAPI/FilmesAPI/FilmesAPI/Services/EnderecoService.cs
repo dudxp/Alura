@@ -38,7 +38,6 @@ namespace FilmesAPI.Services
             }
             else
             {
-
                 enderecos = _context
                     .Enderecos.Where(endereco => endereco.Logradouro == nomeDoEndereco).ToList();
             }
