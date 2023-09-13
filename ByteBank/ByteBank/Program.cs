@@ -10,9 +10,8 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            ContaCorrente conta = new ContaCorrente(4555, 12223);
+            var caminhoArquivo = @"c:\temp\";
 
-            Console.WriteLine(ContaCorrente.TaxaOperacao);
 
             Console.ReadKey();
         }
