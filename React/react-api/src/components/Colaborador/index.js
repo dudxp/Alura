@@ -1,7 +1,6 @@
 import "./Colaborador.css"
 
 const Colaborador = ({nome, cargo, imagem, corPrimaria}) => {
-    // let css = {backgroundColor: corPrimaria}
 
     return (<div className="colaborador">
         <div className="cabecalho" style={{backgroundColor:corPrimaria}}>
@@ -13,10 +12,5 @@ const Colaborador = ({nome, cargo, imagem, corPrimaria}) => {
         </div>
     </div>)
 }
-
-// nome={colaborador.nome}
-// cargo={colaborador.cargo}
-// imagem={colaborador.imagem}
-// time={colaborador.time}
 
 export default Colaborador

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\boeied\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {}
+    "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\boeied\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {
+    "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\boeied\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
+        "projectUniqueName": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
         "projectName": "UsuariosApi",
-        "projectPath": "C:\\Users\\boeied\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
-        "packagesPath": "C:\\Users\\boeied\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\boeied\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\obj\\",
+        "projectPath": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
+        "packagesPath": "C:\\Users\\dud_b\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\boeied\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dud_b\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "D:\\FoccoTreino\\Treinamento\\Packages\\Backend": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -106,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
