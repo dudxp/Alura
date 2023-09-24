@@ -8,8 +8,8 @@ const ListaSuspensa = (props) => {
       <select
         onChange={(evento) => props.alterandoEstado(evento.target.value)}
         required={props.obrigatorio}
-        value={props.valor}
-        defaultValue={"Programação"}
+        defaultValue={"Programador"}
+        // value={props.valor}
       >
         {props.itens.map((item) => (
           <option key={item}>{item}</option>

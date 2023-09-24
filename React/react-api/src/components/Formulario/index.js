@@ -12,6 +12,10 @@ const Formulario = (props) => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
+    if (time === "") {
+      console.log(time,nome)
+      setTime("Programação")
+    } 
     props.inserirNovoColaborador({
       nome,
       cargo,

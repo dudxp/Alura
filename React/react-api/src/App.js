@@ -48,10 +48,6 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   };
 
-  // times.map(time => 
-  //   console.log(colaboradores.map(colaborador => colaborador.time), colaboradores.filter(colaborador => colaborador.time === time.nome))
-  // )
-
   return (
     <div className="App">
       <Banner />
@@ -61,7 +57,8 @@ function App() {
         }
         times={times.map(time => time.nome)}
       />
-      {times.map(time => <Time 
+      {times.map(time => 
+      <Time 
         key={time.nome} 
         nome={time.nome} 
         corPrimaria={time.corPrimaria} 
