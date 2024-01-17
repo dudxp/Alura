@@ -1,9 +1,13 @@
 import React from "react";
 import style from './Button.module.scss';
 
-class Button extends React.Component {
+class Button extends React.Component <{ texto:string }>{
   render() {
-    return <button className={style.buttonInserir}>Inserir</button>;
+    return (
+      <button className={style.button}>
+        {this.props.texto}
+      </button>
+    )
 
     //Criando uma váriavel com o mesmo nome da propriedade e atribuindo valor a ela
     // const backgroundColor = 'red';
