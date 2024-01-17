@@ -8044,11 +8044,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
+      "projectUniqueName": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
       "projectName": "FilmesAPI",
-      "projectPath": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
+      "projectPath": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
       "packagesPath": "C:\\Users\\dud_b\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\FilmesAPI\\obj\\",
+      "outputPath": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\FilmesAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8064,7 +8064,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-        "D:\\FoccoTreino\\Treinamento\\Packages\\Backend": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

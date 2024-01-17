@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fozk6x/0ZTaNGOlvQap2c5w8tyJ8n+1KzThlhQjVKjm6KmOfrzN0l0MdgmSqExWVFFx9BjJTYdED9Lvc3Q4XZg==",
+  "dgSpecHash": "mhlACk9/DRhScKeLV3P0GDWAxtsniIMYAQ1JJE3cllVF/3HXXfbB8kPlZv/44z7grxfFp7rT3PQKa+AxT7Y1GQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
+  "projectFilePath": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dud_b\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\dud_b\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

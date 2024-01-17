@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {}
+    "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {
+    "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
+        "projectUniqueName": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
         "projectName": "UsuariosApi",
-        "projectPath": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
+        "projectPath": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
         "packagesPath": "C:\\Users\\dud_b\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dud_b\\Documents\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\obj\\",
+        "outputPath": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -27,7 +27,6 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-          "D:\\FoccoTreino\\Treinamento\\Packages\\Backend": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

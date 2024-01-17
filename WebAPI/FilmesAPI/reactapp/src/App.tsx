@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import Botao from './Botao/botao';
 import './App.css';
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
         >
           Learn React
         </a>
+        <Botao/>
+        <Botao/>
       </header>
     </div>
   );
