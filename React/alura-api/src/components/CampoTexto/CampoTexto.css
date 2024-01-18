@@ -1,0 +1,15 @@
+.campo-texto {
+    margin: 24px 0;
+}
+
+.campo-texto label {
+    display: block;
+    font-family: 'Montserrat',sans-serif;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.campo-texto input {
+    
+}
