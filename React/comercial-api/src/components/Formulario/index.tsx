@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Botao";
+import Botao from "../Botao";
 import style from './Formulario.module.scss';
 import { ITarefa } from "../../types/tarefa";
 
@@ -56,9 +56,9 @@ class Formulario extends React.Component<{
             required
           />
         </div>
-        <Button type="submit">
+        <Botao type="submit">
           Adicionar
-        </Button>
+        </Botao>
       </form>
     );
   }

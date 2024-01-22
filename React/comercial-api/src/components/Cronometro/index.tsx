@@ -1,4 +1,4 @@
-import Button from "../Botao";
+import Botao from "../Botao";
 import Relogio from "./Relogio";
 import style from "./Cronometro.module.scss";
 
@@ -9,9 +9,9 @@ export default function Cronometro(){
             {/* <div > */}
                 <Relogio/>
             {/* </div> */}
-            <Button>
+            <Botao>
                 Começar!
-            </Button>
+            </Botao>
         </div>
     )
 }
