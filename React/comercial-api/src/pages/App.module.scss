@@ -17,9 +17,8 @@
 
   @media screen and (min-width:1280px)  {
     grid-template-areas: 
-    "nova-tarefa"
-    "cronometro"
-    "tarefas"
+    "nova-tarefa tarefas"
+    "cronometro tarefas"
     ;
     column-gap: 64px;
     grid-template-rows: min-content min-content;

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Formulario from '../components/Formulario';
 import Lista from '../components/Lista';
-import style from './App.module.scss';
+import style from "./App.module.scss";
 import Cronometro from '../components/Cronometro';
 import { ITarefa } from '../types/tarefa';
 

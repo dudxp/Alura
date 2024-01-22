@@ -5,7 +5,7 @@ import { ITarefa } from "../../types/tarefa";
 function Lista({tarefas}: {tarefas: ITarefa[]}) {
   return (
     <aside className={style.listaTarefas}>
-      <h2>
+      <h2 >
         Estudos do dia
       </h2>
       <ul>
