@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
-    padding: 20px;
+    padding: 3vw 4vw;
     width: 100%;
     height: 100%;
   }
@@ -42,9 +42,9 @@
 
   @media screen and (min-width:1280px) {
     
-    .relogioWrapper{
-      font-size: 8rem;
-    }
+    // .relogioWrapper{
+    //   font-size: 15rem;
+    // }
 
     p {
       font-size: 2rem;
