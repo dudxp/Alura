@@ -43,7 +43,7 @@ export default function Ordenador({ ordenador, setOrdenador }: Props) {
               [style["ordenador__option--ativo"]]: false,
             })}
             key={opcao.value}
-            onClick={() => setOrdenador(opcao.value)}
+            onClick={() => {setOrdenador(opcao.value)}}
           >
             {opcao.nome}
           </div>

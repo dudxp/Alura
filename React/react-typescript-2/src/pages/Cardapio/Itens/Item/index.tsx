@@ -1,4 +1,3 @@
-import IItemCardapio from "util/itemCardapio";
 import style from "./Item.module.scss";
 import item from "../itens.json";
 import classNames from "classnames";
@@ -13,7 +12,6 @@ export default function Item(props: Props) {
         size,
         serving,
         price,
-        id,
         category
         } = props;
   return (
