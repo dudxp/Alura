@@ -1,5 +1,5 @@
 import style from './Item.module.scss';
-import item from '../itens.json';
+import item from 'data/cardapio.json';
 import classNames from 'classnames';
 
 type Props = typeof item[0];

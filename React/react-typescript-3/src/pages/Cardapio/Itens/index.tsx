@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Item from './Item';
-import itensCardapio from './itens.json';
+import itensCardapio from 'data/cardapio.json';
 import style from './Itens.module.scss';
 
 interface Props{
