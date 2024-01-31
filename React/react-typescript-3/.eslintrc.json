@@ -19,9 +19,14 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
+    "linebreak-style": ["error", "windows"],
+    "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "react/react-in-jsx-scope": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

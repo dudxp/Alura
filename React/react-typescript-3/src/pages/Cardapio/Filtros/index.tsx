@@ -1,6 +1,6 @@
-import style from './Filtros.module.scss';
-import filtros from './filtros.json';
-import classNames from 'classnames';
+import style from "./Filtros.module.scss";
+import filtros from "./filtros.json";
+import classNames from "classnames";
 
 //Maneira de criar o parametro usando interface:
 // interface IOpcao {
@@ -34,7 +34,7 @@ export default function Filtros({ filtro, setFiltro }: Props) {
             //   ${filtro === opcao.id ? style["filtros__filtro--ativo"] : ""}
             //`
             [style.filtros__filtro]: true,
-            [style['filtros__filtro--ativo']]: filtro === opcao.id
+            [style["filtros__filtro--ativo"]]: filtro === opcao.id
           })}
           key={opcao.id}
           onClick={() => selecionarFiltro(opcao)}

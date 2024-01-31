@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom';
-import style from './PaginaPadrao.module.scss';
-import styleTema from 'styles/Tema.module.scss';
+import { Outlet } from "react-router-dom";
+import style from "./PaginaPadrao.module.scss";
+import styleTema from "styles/Tema.module.scss";
 
 export default function PaginaPadrao(){
   return (

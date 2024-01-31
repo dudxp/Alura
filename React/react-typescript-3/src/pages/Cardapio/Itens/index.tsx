@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import Item from './Item';
-import itensCardapio from 'data/cardapio.json';
-import style from './Itens.module.scss';
+import { useEffect, useState } from "react";
+import Item from "./Item";
+import itensCardapio from "data/cardapio.json";
+import style from "./Itens.module.scss";
+import { Cardapio } from "types/Prato";
 
 interface Props{
     busca: string,
@@ -14,7 +15,7 @@ export default function Itens (props:Props){
   const {busca, filtro, ordenador} = props;
 
   function buscaItens(title: string){
-    const regex = new RegExp(busca, 'i');
+    const regex = new RegExp(busca, "i");
     return regex.test(title);
   }
 
@@ -23,13 +24,13 @@ export default function Itens (props:Props){
     return true;
   }
 
-  function ordenarItens(novaLista: typeof itensCardapio){
+  function ordenarItens(novaLista: Cardapio){
     switch(ordenador){
-    case 'porcao':
+    case "porcao":
       return novaLista.sort((a,b) => a.size > b.size ? 1 : -1);
-    case 'qtd_pessoas':
+    case "qtd_pessoas":
       return novaLista.sort((a,b) => a.serving > b.serving ? 1 : -1);
-    case 'preco':
+    case "preco":
       return novaLista.sort((a,b) => a.price > b.price ? 1 : -1);
     default: 
       return novaLista;

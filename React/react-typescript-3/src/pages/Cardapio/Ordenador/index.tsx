@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import style from './Ordenador.module.scss';
-import opcoes from './opcoes.json';
-import classNames from 'classnames';
-import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
+import { useState } from "react";
+import style from "./Ordenador.module.scss";
+import opcoes from "./opcoes.json";
+import classNames from "classnames";
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 interface Props {
   ordenador: string;
@@ -17,13 +17,13 @@ export default function Ordenador({ ordenador, setOrdenador }: Props) {
     <button
       className={classNames({
         [style.ordenador]: true,
-        [style['ordenador--ativo']]: ordenador !== '',
+        [style["ordenador--ativo"]]: ordenador !== "",
       })}
       onClick={() => setAberto(!aberto)}
       onBlur={() => setAberto(false)}
     >
       <span>
-        {nomeOrdenador || 'Ordenar por:'}
+        {nomeOrdenador || "Ordenar por:"}
       </span>
       {aberto ? (
         <MdKeyboardArrowUp size={20} />
@@ -33,14 +33,14 @@ export default function Ordenador({ ordenador, setOrdenador }: Props) {
       <div
         className={classNames({
           [style.ordenador__options]: true,
-          [style['ordenador__options--ativo']]: aberto,
+          [style["ordenador__options--ativo"]]: aberto,
         })}
       >
         {opcoes.map((opcao) => (
           <div
             className={classNames({
               [style.ordenador__option]: true,
-              [style['ordenador__option--ativo']]: false,
+              [style["ordenador__option--ativo"]]: false,
             })}
             key={opcao.value}
             onClick={() => {setOrdenador(opcao.value);}}
