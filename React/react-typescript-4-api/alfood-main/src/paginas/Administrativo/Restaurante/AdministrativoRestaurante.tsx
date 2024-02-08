@@ -17,18 +17,32 @@ import { StyledTableCell, StyledTableRow } from "../../../types/StyledTableCompo
 
 export default function AdministrativoRestaurante() {
 	const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
+	const [restauranteAtualizacao, setRestauranteAtualizacao] = useState<IRestaurante | undefined>();
 
 	useEffect(() => {
-		axios.get("http://localhost:8000/api/v2/restaurantes/").then((resposta) => {
-			setRestaurantes(resposta.data);
+		axios.get("http://localhost:8000/api/v2/restaurantes/")
+			.then((resposta) => {
+				setRestaurantes(resposta.data);
 		});
 	}, []);
+
+	const styles = {
+		button: {
+			background: "lightskyblue",
+			'&:hover': {
+				background: "blue",
+			}
+		}
+	}
 
 	return (
 		<ThemeProvider theme={DarkTheme}>
 			<AdministrativoFormulario
 				setRestaurantes={setRestaurantes}
-				restaurantes={restaurantes} />
+				restaurantes={restaurantes} 
+				setRestauranteAtualizacao={setRestauranteAtualizacao}
+				restauranteAtualizacao={restauranteAtualizacao}
+			/>
 			<h3>Tabela de restaurantes:</h3>
 			<TableContainer component={Paper}>
 				<Table>
@@ -43,6 +57,13 @@ export default function AdministrativoRestaurante() {
 							return (
 								<StyledTableRow
 									key={restaurante.id}
+									sx={{
+										":hover":{
+											bgcolor: "grey"
+										},
+										cursor: "pointer"
+									}}
+									onClick={() => setRestauranteAtualizacao(restaurante)}
 								>
 									<TableCell>{restaurante.id}</TableCell>
 									<TableCell>{restaurante.nome}</TableCell>
