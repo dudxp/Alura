@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from restaurantes.models import Restaurante, Prato
+from restaurantes.models import Restaurante, Prato, Currency
 from django.contrib.auth.models import User
 
 class RestauranteSerializer(serializers.ModelSerializer):
@@ -10,6 +10,11 @@ class RestauranteSerializer(serializers.ModelSerializer):
 class PratoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prato
+        fields = '__all__'
+
+class CurrencySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Currency
         fields = '__all__'
 
 

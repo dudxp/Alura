@@ -7,6 +7,14 @@ class Restaurante(models.Model):
     def __str__(self):
         return self.nome
 
+class Currency(models.Model):
+    code = models.TextField(max_length=50)
+    description = models.TextField(max_length=500)
+    rating = models.FloatField()
+
+    def __str__(self):
+        return self.code
+
 class Prato(models.Model):
     TAGS = (
         ('Doces', 'Doces'),

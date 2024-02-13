@@ -2,8 +2,8 @@ from django.http.response import JsonResponse
 from drf_yasg.openapi import Response
 from rest_framework import generics, viewsets, filters
 from rest_framework.views import APIView
-from restaurantes.models import Restaurante, Prato
-from restaurantes.serializers import RestauranteSerializer, PratoSerializer, ListaPratosDeUmRestauranteSerializer, UserSerializer
+from restaurantes.models import Currency, Restaurante, Prato
+from restaurantes.serializers import CurrencySerializer, RestauranteSerializer, PratoSerializer, ListaPratosDeUmRestauranteSerializer, UserSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
@@ -30,6 +30,15 @@ class PratoViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['nome']
     filterset_fields = ['tag']
+    pagination_class=None
+
+class CurrencyViewSet(viewsets.ModelViewSet):
+    """Recurso de pratos de um restaurante"""
+    queryset = Currency.objects.all()
+    serializer_class = CurrencySerializer
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
+    ordering_fields = ['code']
+    filterset_fields = ['code']
     pagination_class=None
 
 class ListaPratosDeUmRestauranteView(generics.ListAPIView):
