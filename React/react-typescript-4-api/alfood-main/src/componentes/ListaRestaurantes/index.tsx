@@ -9,31 +9,31 @@ import { Button } from "@mui/material";
 const ListaRestaurantes = () => {
   const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
   const [proximaPagina, setProximaPagina] = useState("");
+  const [paginaAnterior, setPaginaAnterior] = useState("");
 
-  useEffect(() => {
+  const buscarDados = (paginaNavegar: string) => {
     axios
-      .get<IPaginacao<IRestaurante>>(
-        "http://localhost:8000/api/v1/restaurantes/"
-      )
+      .get<IPaginacao<IRestaurante>>(paginaNavegar)
       .then((resposta) => {
         setRestaurantes(resposta.data.results);
         setProximaPagina(resposta.data.next);
+        setPaginaAnterior(resposta.data.previous);
       })
       .catch((erro) => {
         console.log(erro);
       });
+  };
+
+  useEffect(() => {
+    buscarDados("http://localhost:8000/api/v1/restaurantes/");
   }, []);
 
-  const verMais = () => {
-    axios
-      .get<IPaginacao<IRestaurante>>(proximaPagina)
-      .then((resposta) => {
-        setRestaurantes([...restaurantes, ...resposta.data.results]);
-        setProximaPagina(resposta.data.next);
-      })
-      .catch((erro) => {
-        console.log(erro);
-      });
+  const buttonTheme = {
+    marginTop: 4,
+    marginRight: 4,
+    alignSelf: "center",
+    paddingRight: 4,
+    paddingLeft: 4,
   };
 
   return (
@@ -44,20 +44,31 @@ const ListaRestaurantes = () => {
       {restaurantes?.map((item) => (
         <Restaurante restaurante={item} key={item.id} />
       ))}
-      {proximaPagina && (
-        <Button
-          sx={{
-            marginTop: 4,
-            alignSelf: "center",
-            paddingRight: 4,
-            paddingLeft: 4
-          }}
-          variant="contained"
-          onClick={verMais}
-        >
-          Ver mais
-        </Button>
-      )}
+
+      <div className={style.listaRestaurantes__botoesPaginaAnteriorProxima}>
+        {
+          <Button
+            sx={buttonTheme}
+            color="inherit"
+            variant="contained"
+            onClick={() => buscarDados(paginaAnterior)}
+            disabled={!paginaAnterior}
+          >
+            Página anterior
+          </Button>
+        }
+        {
+          <Button
+            sx={buttonTheme}
+            color="inherit"
+            variant="contained"
+            onClick={() => buscarDados(proximaPagina)}
+            disabled={!proximaPagina}
+          >
+            Proxima página
+          </Button>
+        }
+      </div>
     </section>
   );
 };

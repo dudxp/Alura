@@ -1,33 +1,42 @@
 import { Button, CssBaseline, TextField, ThemeProvider } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Formulario.module.scss";
 import axios from "axios";
 import IRestaurante from "../../../interfaces/IRestaurante";
 import { DarkTheme } from "../../../types/DarkTheme";
+import { useParams } from "react-router-dom";
 
-interface Props {
-  setRestaurantes: React.Dispatch<React.SetStateAction<IRestaurante[]>>;
-  restaurantes: IRestaurante[];
-}
-
-export default function AdministrativoFormulario(props: Props) {
-  const { setRestaurantes, restaurantes } = props;
+export default function AdministrativoFormulario() {
+  const parametros = useParams();
   const [nomeRestaurante, setNomeRestaurante] = useState("");
+
+  useEffect(() => {
+    if (parametros.id) {
+      axios
+        .get<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${parametros.id}/`)
+        .then((resposta) => setNomeRestaurante(resposta.data.nome))
+        .catch((resposta) => console.log(resposta + " id: " + parametros.id))
+    }
+  }, [parametros])
 
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
-
-    axios
-      .post("http://localhost:8000/api/v2/restaurantes/", {
+    if (parametros.id) {
+      axios
+      .post<IRestaurante>("http://localhost:8000/api/v2/restaurantes/", {
         nome: nomeRestaurante,
       })
-      .then((evento) => {
-        setRestaurantes([...restaurantes, evento.data]);
-        alert("Restaurante registrado com sucesso");
+      .then(() => alert("Restaurante registrado com sucesso"))
+      .catch((erro) => alert("Erro: " + erro));
+    }
+    else {
+      axios
+      .put<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${parametros.id}/`,{
+        nome: nomeRestaurante,
       })
-      .catch((erro) => {
-        alert("Erro: " + erro.response.data.nome[0]);
-      });
+      .then(() => alert("Restaurante atualizado com sucesso"))
+      .catch((erro) => alert("Erro: " + erro));
+    }
   };
 
   return (
@@ -51,7 +60,7 @@ export default function AdministrativoFormulario(props: Props) {
           }}
           type="submit"
           >
-          Inserir restaurante
+          {parametros.id ? "Editar restaurante" : "Inserir restaurante"}
         </Button>
       </form>
     </ThemeProvider>
