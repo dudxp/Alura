@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from restaurantes.views import RestauranteViewSet, PratoViewSet, ListaPratosDeUmRestauranteView, ListandoTagsView, ListaRestaurantesView, ListaPratosView, UserViewSet
+from restaurantes.views import CurrencyViewSet, RestauranteViewSet, PratoViewSet, ListaPratosDeUmRestauranteView, ListandoTagsView, ListaRestaurantesView, ListaPratosView, UserViewSet
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,6 +26,7 @@ router = routers.DefaultRouter()
 router.register('user', UserViewSet, basename="User")
 router.register('restaurantes', RestauranteViewSet, basename='Restaurantes')
 router.register('pratos', PratoViewSet, basename='Pratos')
+router.register('currency', CurrencyViewSet, basename='Currency')
 
 urlpatterns = [
    path('admin-api/', admin.site.urls),
