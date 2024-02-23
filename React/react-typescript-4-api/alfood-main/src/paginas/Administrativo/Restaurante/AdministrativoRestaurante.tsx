@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import IRestaurante from "../../../interfaces/IRestaurante";
 import {
+  Button,
   Paper,
   Table,
   TableBody,
@@ -9,9 +10,9 @@ import {
   TableHead,
   TableRow,
   ThemeProvider,
+  Typography,
 } from "@mui/material";
 import axios from "axios";
-import AdministrativoFormulario from "../Formulario";
 import { DarkTheme } from "../../../types/DarkTheme";
 import {
   StyledTableCell,
@@ -22,6 +23,16 @@ import { Link } from "react-router-dom";
 export default function AdministrativoRestaurante() {
   const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
 
+  const excluirRestaurante = (restauranteExcluir: IRestaurante) => {
+    axios
+      .delete(`http://localhost:8000/api/v2/restaurantes/${restauranteExcluir.id}/`)
+      .then(() => {
+        const listaRestaurantes = restaurantes.filter(restaurante => restaurante.id !== restauranteExcluir.id);
+        setRestaurantes(listaRestaurantes);
+      })
+      .catch((resposta) => console.log(resposta.data))
+  }
+
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/v2/restaurantes/")
@@ -30,14 +41,17 @@ export default function AdministrativoRestaurante() {
 
   return (
     <ThemeProvider theme={DarkTheme}>
-      <h3>Tabela de restaurantes:</h3>
       <TableContainer component={Paper}>
+        <Typography variant="h3" gutterBottom>
+          Tabela de restaurantes:
+        </Typography>
         <Table>
           <TableHead>
             <TableRow>
               <StyledTableCell>Id</StyledTableCell>
               <StyledTableCell>Nome</StyledTableCell>
               <StyledTableCell>Editar</StyledTableCell>
+              <StyledTableCell>Excluir</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -51,6 +65,11 @@ export default function AdministrativoRestaurante() {
                     <Link to={`/admin/restaurantes/${restaurante.id}`}>
 											[editar]
 										</Link>
+                  </TableCell>
+                  <TableCell>
+                    <Button variant="outlined" color="error" onClick={() => excluirRestaurante(restaurante)}>
+                      Excluir
+                    </Button>
                   </TableCell>
                 </StyledTableRow>
               );

@@ -21,20 +21,22 @@ export default function AdministrativoFormulario() {
 
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
+    
     if (parametros.id) {
-      axios
-      .post<IRestaurante>("http://localhost:8000/api/v2/restaurantes/", {
-        nome: nomeRestaurante,
-      })
-      .then(() => alert("Restaurante registrado com sucesso"))
-      .catch((erro) => alert("Erro: " + erro));
-    }
-    else {
       axios
       .put<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${parametros.id}/`,{
         nome: nomeRestaurante,
       })
       .then(() => alert("Restaurante atualizado com sucesso"))
+      .catch((erro) => alert("Erro: " + erro));
+      
+    }
+    else {
+      axios
+      .post<IRestaurante>("http://localhost:8000/api/v2/restaurantes/", {
+        nome: nomeRestaurante,
+      })
+      .then(() => alert("Restaurante registrado com sucesso"))
       .catch((erro) => alert("Erro: " + erro));
     }
   };
