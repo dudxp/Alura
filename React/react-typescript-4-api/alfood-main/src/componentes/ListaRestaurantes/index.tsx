@@ -1,30 +1,41 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import IRestaurante from "../../interfaces/IRestaurante";
 import style from "./ListaRestaurantes.module.scss";
 import Restaurante from "./Restaurante";
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
 import { IPaginacao } from "../../interfaces/IPaginacao";
-import { Button, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormGroup,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { httpV1 } from "../../http";
 
 interface IParametrosBusca {
-  ordering: string,
-  search: string
+  ordering: string;
+  search: string;
 }
 
 const ListaRestaurantes = () => {
   const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
   const [proximaPagina, setProximaPagina] = useState("");
   const [paginaAnterior, setPaginaAnterior] = useState("");
-  const [valorBusca, setValorBusca] = useState("");
+  const [nomeRestaurante, setNomeRestaurante] = useState("");
+  const [selectOrder, setSelectOrder] = useState("id");
 
-  const buscarDados = (paginaNavegar: string, opcoes: AxiosRequestConfig = {}) => {
-    if (opcoes){
-      console.log(opcoes)
-
-    }
-    axios
+  const buscarDados = (
+    paginaNavegar: string,
+    opcoes: AxiosRequestConfig = {}
+  ) => {
+    httpV1
       .get<IPaginacao<IRestaurante>>(paginaNavegar, opcoes)
       .then((resposta) => {
+        // console.log(resposta)
         setRestaurantes(resposta.data.results);
         setProximaPagina(resposta.data.next);
         setPaginaAnterior(resposta.data.previous);
@@ -34,52 +45,70 @@ const ListaRestaurantes = () => {
       });
   };
 
-  const filtrarValor = (valorBusca: string) => {
+  const filtrarValor = (valorBusca: string, ordemBusca: string) => {
+    // console.log(ordemBusca);
     const opcoes = {
-      params: {
-      } as IParametrosBusca
-    }
+      params: {} as IParametrosBusca,
+    };
     if (valorBusca) {
       opcoes.params.search = valorBusca;
     }
-    buscarDados("http://localhost:8000/api/v1/restaurantes/",opcoes);
+    if (ordemBusca) {
+      opcoes.params.ordering = ordemBusca;
+    }
+    // console.log(opcoes.params.search + " -- " + opcoes.params.ordering)
+    buscarDados("restaurantes/", opcoes);
+  };
+
+  const handleSelectedOrder = (evento: SelectChangeEvent<string>) => {
+    const selectedValue = evento.target.value;
+    setSelectOrder(selectedValue);
+    filtrarValor(nomeRestaurante, selectedValue);
+  }
+
+  const handleNomeRestaurante = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const selectedValue = evento.target.value;
+    setNomeRestaurante(selectedValue);
+    filtrarValor(selectedValue, selectOrder);
   }
 
   useEffect(() => {
-    buscarDados("http://localhost:8000/api/v1/restaurantes/");
+    buscarDados("restaurantes/");
   }, []);
 
-  const buttonTheme = {
-    marginTop: 4,
-    marginRight: 4,
-    alignSelf: "center",
-    paddingRight: 4,
-    paddingLeft: 4,
-  };
-
   return (
-    <section className={style.listaRestaurantes}>
-      <h1>
+    <Box component="section" className={style.listaRestaurantes}>
+      <Typography component="h1">
         Os restaurantes mais <em>bacanas</em>!
-      </h1>
-
-      <form>
+      </Typography>
+      <FormGroup sx={{
+        display: "flex",
+        flexDirection: "row",
+      }}>
         <TextField
           id="filled-basic"
           label="Filtrar restaurante:"
           variant="filled"
-          onChange={(evento) => filtrarValor(evento.target.value)}
+          onChange={(evento) => handleNomeRestaurante(evento)}
         />
-      </form>
+        <Select
+          value={selectOrder}
+          label="Ordenar por"
+          onChange={(evento) => handleSelectedOrder(evento)}
+        >
+          <MenuItem value="id">Id</MenuItem>
+          <MenuItem value="nome">Nome</MenuItem>
+        </Select>
+      </FormGroup>
 
       {restaurantes?.map((item) => (
         <Restaurante restaurante={item} key={item.id} />
       ))}
 
-      <div className={style.listaRestaurantes__botoesPaginaAnteriorProxima}>
+      <Box className={style.listaRestaurantes__grupoBotoes}>
         {
           <Button
-            sx={buttonTheme}
+            className={style.listaRestaurantes__grupoBotoes__botao}
             color="inherit"
             variant="contained"
             onClick={() => buscarDados(paginaAnterior)}
@@ -90,7 +119,7 @@ const ListaRestaurantes = () => {
         }
         {
           <Button
-            sx={buttonTheme}
+            className={style.listaRestaurantes__grupoBotoes__botao}
             color="inherit"
             variant="contained"
             onClick={() => buscarDados(proximaPagina)}
@@ -99,8 +128,8 @@ const ListaRestaurantes = () => {
             Proxima página
           </Button>
         }
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 };
 

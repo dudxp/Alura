@@ -8,7 +8,7 @@ class Restaurante(models.Model):
         return self.nome
 
 class Currency(models.Model):
-    code = models.TextField(max_length=50)
+    code = models.CharField(max_length=50)
     description = models.TextField(max_length=500)
     rating = models.FloatField()
 

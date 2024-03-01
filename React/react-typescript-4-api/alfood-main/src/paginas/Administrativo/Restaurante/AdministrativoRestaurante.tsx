@@ -12,20 +12,20 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import axios from "axios";
 import { DarkTheme } from "../../../types/DarkTheme";
 import {
   StyledTableCell,
   StyledTableRow,
 } from "../../../types/StyledTableComponents";
 import { Link } from "react-router-dom";
+import { httpV2 } from "../../../http";
 
 export default function AdministrativoRestaurante() {
   const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
 
   const excluirRestaurante = (restauranteExcluir: IRestaurante) => {
-    axios
-      .delete(`http://localhost:8000/api/v2/restaurantes/${restauranteExcluir.id}/`)
+    httpV2
+      .delete(`restaurantes/${restauranteExcluir.id}/`)
       .then(() => {
         const listaRestaurantes = restaurantes.filter(restaurante => restaurante.id !== restauranteExcluir.id);
         setRestaurantes(listaRestaurantes);
@@ -34,8 +34,8 @@ export default function AdministrativoRestaurante() {
   }
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/v2/restaurantes/")
+    httpV2
+      .get("restaurantes/")
       .then((resposta) => setRestaurantes(resposta.data))
   }, []);
 

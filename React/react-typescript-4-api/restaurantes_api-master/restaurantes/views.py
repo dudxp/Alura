@@ -33,12 +33,16 @@ class PratoViewSet(viewsets.ModelViewSet):
     pagination_class=None
 
 class CurrencyViewSet(viewsets.ModelViewSet):
-    """Recurso de pratos de um restaurante"""
+    """Recurso de moedas"""
     queryset = Currency.objects.all()
     serializer_class = CurrencySerializer
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
-    ordering_fields = ['code']
-    filterset_fields = ['code']
+    ordering_fields = ['code','description','rating']
+    filterset_fields = {
+        'code': ['exact'],
+        'description': ['icontains'],
+        'rating': ['exact'],
+    }
     pagination_class=None
 
 class ListaPratosDeUmRestauranteView(generics.ListAPIView):

@@ -30,4 +30,13 @@ class Migration(migrations.Migration):
                 ('restaurante', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='restaurantes.restaurante')),
             ],
         ),
+        migrations.CreateModel(
+            name='Currency',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('code', models.CharField(max_length=50)),
+                ('description', models.TextField(max_length=500)),
+                ('rating', models.FloatField()),
+            ],
+        ),
     ]

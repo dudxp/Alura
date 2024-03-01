@@ -3499,24 +3499,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dud_b\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\boeied\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
+      "projectUniqueName": "D:\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
       "projectName": "UsuariosApi",
-      "projectPath": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
-      "packagesPath": "C:\\Users\\dud_b\\.nuget\\packages\\",
-      "outputPath": "D:\\ProjetosProgramacao\\GitHub\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\obj\\",
+      "projectPath": "D:\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\UsuariosApi.csproj",
+      "packagesPath": "C:\\Users\\boeied\\.nuget\\packages\\",
+      "outputPath": "D:\\Alura\\WebAPI\\FilmesAPI\\UsuariosApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\dud_b\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\boeied\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3524,7 +3519,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3609,8 +3603,30 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8g9c-28fc-mcx2",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

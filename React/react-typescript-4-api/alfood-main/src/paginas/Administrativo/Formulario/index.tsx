@@ -1,10 +1,17 @@
-import { Button, CssBaseline, TextField, ThemeProvider } from "@mui/material";
+import {
+  Box,
+  Button,
+  CssBaseline,
+  TextField,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import style from "./Formulario.module.scss";
-import axios from "axios";
 import IRestaurante from "../../../interfaces/IRestaurante";
 import { DarkTheme } from "../../../types/DarkTheme";
 import { useParams } from "react-router-dom";
+import { httpV2 } from "../../../http";
 
 export default function AdministrativoFormulario() {
   const parametros = useParams();
@@ -12,59 +19,64 @@ export default function AdministrativoFormulario() {
 
   useEffect(() => {
     if (parametros.id) {
-      axios
-        .get<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${parametros.id}/`)
+      httpV2
+        .get<IRestaurante>(
+          `restaurantes/${parametros.id}/`
+        )
         .then((resposta) => setNomeRestaurante(resposta.data.nome))
-        .catch((resposta) => console.log(resposta + " id: " + parametros.id))
+        .catch((resposta) => console.log(resposta + " id: " + parametros.id));
     }
-  }, [parametros])
+  }, [parametros]);
 
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
-    
+
     if (parametros.id) {
-      axios
-      .put<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${parametros.id}/`,{
-        nome: nomeRestaurante,
-      })
-      .then(() => alert("Restaurante atualizado com sucesso"))
-      .catch((erro) => alert("Erro: " + erro));
-      
-    }
-    else {
-      axios
-      .post<IRestaurante>("http://localhost:8000/api/v2/restaurantes/", {
-        nome: nomeRestaurante,
-      })
-      .then(() => alert("Restaurante registrado com sucesso"))
-      .catch((erro) => alert("Erro: " + erro));
+      httpV2
+        .put<IRestaurante>(
+          `restaurantes/${parametros.id}/`,
+          {
+            nome: nomeRestaurante,
+          }
+        )
+        .then(() => alert("Restaurante atualizado com sucesso"))
+        .catch((erro) => alert("Erro: " + erro));
+    } else {
+      httpV2
+        .post<IRestaurante>("restaurantes/", {
+          nome: nomeRestaurante,
+        })
+        .then(() => alert("Restaurante registrado com sucesso"))
+        .catch((erro) => alert("Erro: " + erro));
     }
   };
 
   return (
     <ThemeProvider theme={DarkTheme}>
-      <form 
-        className={style.formularioRestaurante} 
-        onSubmit={submeterForm}
-        >
-        <CssBaseline />
-        <TextField
-          id="filled-basic"
-          label="Nome do restaurante:"
-          variant="filled"
-          value={nomeRestaurante}
-          onChange={(evento) => setNomeRestaurante(evento.target.value)}
+      <CssBaseline />
+      <Box className={style.containerFormulario}
+      >
+        <Typography component="h1" variant="h6">
+          Formulário de restaurante
+        </Typography>
+        <Box component="form" className={style.formulario} onSubmit={submeterForm}>
+          <TextField
+            label="Nome do restaurante:"
+            variant="outlined"
+            value={nomeRestaurante}
+            onChange={(evento) => setNomeRestaurante(evento.target.value)}
+            fullWidth
+            required
           />
-        <Button
-          variant="contained"
-          sx={{
-            marginTop: "10px",
-          }}
-          type="submit"
+          <Button
+            variant="outlined"
+            className={style.botao}
+            type="submit"
           >
-          {parametros.id ? "Editar restaurante" : "Inserir restaurante"}
-        </Button>
-      </form>
+            {parametros.id ? "Editar" : "Inserir"}
+          </Button>
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }

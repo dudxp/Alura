@@ -17,7 +17,6 @@ class CurrencySerializer(serializers.ModelSerializer):
         model = Currency
         fields = '__all__'
 
-
 class ListaPratosDeUmRestauranteSerializer(serializers.ModelSerializer):
     restaurante_nome = serializers.ReadOnlyField(source='restaurantes.nome')
     class Meta:
