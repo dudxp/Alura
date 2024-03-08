@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import IRestaurante from "../../../interfaces/IRestaurante";
+import IRestaurante from "../../../../interfaces/IRestaurante";
 import {
   Button,
   Paper,
@@ -12,15 +12,13 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import { DarkTheme } from "../../../types/DarkTheme";
-import {
-  StyledTableCell,
-  StyledTableRow,
-} from "../../../types/StyledTableComponents";
-import { Link } from "react-router-dom";
-import { httpV2 } from "../../../http";
 
-export default function AdministrativoRestaurante() {
+import { Link } from "react-router-dom";
+import { StyledTableCell, StyledTableRow } from "../../../../types/StyledTableComponents";
+import { httpV2 } from "../../../../http";
+import { DarkTheme } from "../../../../types/DarkTheme";
+
+export default function ListaRestaurantes() {
   const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
 
   const excluirRestaurante = (restauranteExcluir: IRestaurante) => {
