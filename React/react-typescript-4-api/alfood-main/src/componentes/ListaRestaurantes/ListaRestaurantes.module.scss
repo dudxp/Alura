@@ -2,6 +2,24 @@
   display: flex;
   flex-direction: column;
 
+  &__grupoFiltros {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: fit-content;
+    
+    &__grupoForm {
+      display: "flex";
+      flex-direction: "row";
+      justify-content: "space-between";
+      width: "fit-content";
+      
+      &__form{
+        margin-right: 20px; 
+      }
+    }
+  }
+
   &__grupoBotoes {
     display: flex;
     flex-direction: row;
@@ -15,12 +33,5 @@
       padding-right: 4px;
       padding-left: 4px;
     }
-  }
-
-  &__grupoForm {
-    display: flex;
-    flex-direction: row;
-    // align-items: center;
-    // justify-content: space-between;
   }
 }

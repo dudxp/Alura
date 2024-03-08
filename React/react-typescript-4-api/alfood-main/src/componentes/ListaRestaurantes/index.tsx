@@ -81,25 +81,29 @@ const ListaRestaurantes = () => {
       <Typography component="h1">
         Os restaurantes mais <em>bacanas</em>!
       </Typography>
-      <FormGroup sx={{
-        display: "flex",
-        flexDirection: "row",
-      }}>
-        <TextField
-          id="filled-basic"
-          label="Filtrar restaurante:"
-          variant="filled"
-          onChange={(evento) => handleNomeRestaurante(evento)}
-        />
-        <Select
-          value={selectOrder}
-          label="Ordenar por"
-          onChange={(evento) => handleSelectedOrder(evento)}
-        >
-          <MenuItem value="id">Id</MenuItem>
-          <MenuItem value="nome">Nome</MenuItem>
-        </Select>
-      </FormGroup>
+      <Box>
+        <Typography component="h1" variant="h6">
+          Filtros:
+        </Typography>
+        <Box className={style.listaRestaurantes__grupoFiltros}>
+          <TextField
+            id="filled-basic"
+            label="Filtrar restaurante:"
+            variant="filled"
+            className={style.listaRestaurantes__grupoFiltros__grupoForm__form}
+            onChange={(evento) => handleNomeRestaurante(evento)}
+            />
+          <Select
+            value={selectOrder}
+            label="Ordenar por"
+            autoWidth
+            onChange={(evento) => handleSelectedOrder(evento)}
+            >
+            <MenuItem value="id">Id</MenuItem>
+            <MenuItem value="nome">Nome</MenuItem>
+          </Select>
+        </Box>
+      </Box>
 
       {restaurantes?.map((item) => (
         <Restaurante restaurante={item} key={item.id} />
