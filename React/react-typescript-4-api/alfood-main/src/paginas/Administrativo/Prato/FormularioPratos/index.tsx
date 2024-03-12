@@ -44,40 +44,65 @@ export default function FormularioPratos() {
       .catch((resposta) => console.log(resposta))
   }, []);
 
-  // id: number
-  // nome: string
-  // tag: string
-  // imagem: string
-  // descricao: string
-  // restaurante: number
-
   useEffect(() => {
     if (parametros.id) {
       httpV2
         .get<IPrato>(`pratos/${parametros.id}/`)
-        .then((resposta) => setNomePrato(resposta.data.nome))
+        .then((resposta) => {
+          setNomePrato(resposta.data.nome);
+          setDescricao(resposta.data.descricao);
+          setTag(resposta.data.tag);
+          setRestaurante(resposta.data.restaurante.toString());
+        })
         .catch((resposta) => console.log(resposta + " id: " + parametros.id));
     }
   }, [parametros]);
 
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
+    var httpMethod = parametros.id ? "PUT" : "POST";
+    var urlMethod = parametros.id ? `pratos/${parametros.id}/` : "pratos/";
 
-    if (parametros.id) {
-      httpV2
-        .put<IPrato>(`pratos/${parametros.id}/`, {
-          nome: nomePrato,
-        })
-        .then(() => alert("Prato atualizado com sucesso"))
-        .catch((erro) => alert("Erro: " + erro));
-    } else {
-      httpV2
-        .post<IPrato>("prato/", {
-          nome: nomePrato,
-        })
-        .then(() => alert("Prato registrado com sucesso"))
-        .catch((erro) => alert("Erro: " + erro));
+    const formData = new FormData();
+
+    // id: number
+    // nome: string
+    // tag: string
+    // imagem: string
+    // descricao: string
+    // restaurante: number
+
+    formData.append("nome", nomePrato);
+    formData.append("descricao", descricao);
+    formData.append("tag", tag);
+    formData.append("restaurante",restaurante);
+
+    if (imagem) {
+      formData.append("imagem", imagem);
     }
+
+    httpV2
+      .request({
+        url: urlMethod,
+        method: httpMethod,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        data: formData,
+      })
+      .then(() => {
+        setNomePrato("");
+        setDescricao("");
+        setTag("");
+        setRestaurante("");
+        setImagem(null);
+        if (parametros.id) {
+          alert("Prato editado com sucesso!");
+        } else {
+          alert("Prato cadastrado com sucesso!");
+        }
+      })
+      .catch((resposta) => console.log(resposta));
   };
 
   const selecionarArquivo = (arquivo: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,7 +150,7 @@ export default function FormularioPratos() {
             <InputLabel id="tag">Tag</InputLabel>
             <Select labelId="tag" value={tag} onChange={(evento) => setTag(evento.target.value)}>
               {tags.map((tag) => (
-                <MenuItem key={tag.id} value={tag.id}>
+                <MenuItem key={tag.id} value={tag.value}>
                   {tag.value}
                 </MenuItem>
               ))}
