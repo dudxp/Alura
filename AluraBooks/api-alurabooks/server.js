@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 
 const server = jsonServer.create()
 const router = jsonServer.router('./database.json')
+const https = require("https");
 let userdb = JSON.parse(fs.readFileSync('./usuarios.json', 'UTF-8'))
 
 server.use(bodyParser.urlencoded({ extended: true }))
@@ -356,8 +357,31 @@ server.use(/^(?!\/(public|livros|autores|categorias)).*$/, (req, res, next) => {
   }
 })
 
+server.get('/public/docs', (req, res) => {
+  const meuHtml = `
+    <h1>Documentação da API</h1>
+    <ul>
+      <li>GET /livros</li>
+      <li>POST /livros</li>
+      <li>GET /categorias</li>
+    </ul>
+  `
+  res.status(200).contentType("text/html").send(meuHtml)
+})
+
 server.use(router)
 
-server.listen(8000, () => {
-  console.log("API disponível em http://localhost:8000")
+https.createServer(
+  {
+    key: fs.readFileSync('../server.key'),
+    cert: fs.readFileSync('../server.crt')
+  },
+  server
+).listen(8000, () => {
+  console.log("Server https da API disponível em https://localhost:8000")
 })
+
+server.listen(8001, () => {
+  console.log("Server http da API disponível em http://localhost:8001")
+})
+
