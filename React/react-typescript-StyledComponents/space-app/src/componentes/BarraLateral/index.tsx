@@ -3,15 +3,15 @@ import ItemNavegacao from "./ItemNavegacao";
 
 const ListaEstilizada = styled.ul`
   list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 212px;
+  padding-left: 0;
+  width: 220px;
+  height: 276px;
 `;
 
 const itensNavegacao = [
   {
     id: 1,
-    nome: "Inicio",
+    nome: "Inicío",
     iconeAtivo: "/icones/home-ativo.png",
     iconeInativo: "/icones/home-inativo.png",
     ativo: false

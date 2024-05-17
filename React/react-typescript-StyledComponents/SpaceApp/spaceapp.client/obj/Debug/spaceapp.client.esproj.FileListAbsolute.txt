@@ -1,0 +1,1 @@
+D:\ProjetosProgramacao\GitHub\Alura\React\react-typescript-StyledComponents\SpaceApp\spaceapp.client\obj\Debug\spaceapp.client.esproj.CoreCompileInputs.cache
