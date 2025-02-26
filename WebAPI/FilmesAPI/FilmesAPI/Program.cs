@@ -1,27 +1,38 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FilmesAPI.Data;
+using FilmesAPI.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
-namespace FilmesAPI
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AppDbContext>(opt => 
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+    opt.UseLazyLoadingProxies()
+       .UseMySQL(builder.Configuration.GetConnectionString("FilmeConnection"));
+});
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<FilmeService, FilmeService>();
+builder.Services.AddScoped<CinemaService, CinemaService>();
+builder.Services.AddScoped<EnderecoService, EnderecoService>();
+builder.Services.AddScoped<GerenteService, GerenteService>();
+builder.Services.AddScoped<SessaoService, SessaoService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddSwaggerGen(c => c
+                    .SwaggerDoc("v1", new OpenApiInfo { Title = "Filmes API", Version = "v1" }));
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
+var app = builder.Build();
+
+if (builder.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage()
+       .UseSwagger()
+       .UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Filmes API"));
 }
+
+app.UseHttpsRedirection()
+   .UseRouting()
+   .UseAuthorization()
+   .UseEndpoints(endpoints => endpoints.MapControllers());
+
+app.Run();
