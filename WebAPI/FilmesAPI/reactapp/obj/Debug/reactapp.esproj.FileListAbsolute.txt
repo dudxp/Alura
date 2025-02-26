@@ -1,2 +1,0 @@
-D:\ProjetosProgramacao\GitHub\Alura\WebAPI\FilmesAPI\ReactApp\obj\Debug\reactapp.esproj.SuggestedBindingRedirects.cache
-D:\ProjetosProgramacao\GitHub\Alura\WebAPI\FilmesAPI\ReactApp\obj\Debug\reactapp.esproj.CoreCompileInputs.cache
