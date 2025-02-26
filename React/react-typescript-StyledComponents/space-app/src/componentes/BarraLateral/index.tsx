@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ItemNavegacao from "./ItemNavegacao";
+import dadosJson from "./itensNavegacao.json";
 
 const ListaEstilizada = styled.ul`
   list-style-type: none;
@@ -8,45 +9,17 @@ const ListaEstilizada = styled.ul`
   height: 276px;
 `;
 
-const itensNavegacao = [
-  {
-    id: 1,
-    nome: "Inicío",
-    iconeAtivo: "/icones/home-ativo.png",
-    iconeInativo: "/icones/home-inativo.png",
-    ativo: false
-  },
-  {
-    id: 2,
-    nome: "Mais vistas",
-    iconeAtivo: "/icones/mais-vistas-ativo.png",
-    iconeInativo: "/icones/mais-vistas-inativo.png",
-    ativo: false
-  },
-  {
-    id: 3,
-    nome: "Mais curtidas",
-    iconeAtivo: "/icones/mais-curtidas-ativo.png",
-    iconeInativo: "/icones/mais-curtidas-inativo.png",
-    ativo: false
-  },
-  {
-    id: 4,
-    nome: "Novas",
-    iconeAtivo: "/icones/novas-ativo.png",
-    iconeInativo: "/icones/novas-inativo.png",
-    ativo: false
-  },
-  {
-    id: 5,
-    nome: "Surpreenda-me",
-    iconeAtivo: "/icones/surpreenda-me-ativo.png",
-    iconeInativo: "/icones/surpreenda-me-inativo.png",
-    ativo: false
-  },
-];
+interface CamposNavegacao {
+  id: number;
+  nome: string;
+  iconeAtivo: string;
+  iconeInativo: string;
+  ativo: boolean;
+}
 
 export default function BarraLateral() {
+  const itensNavegacao: CamposNavegacao[] = dadosJson.camposNavegacao;
+
   return (
     <aside>
       <nav>
