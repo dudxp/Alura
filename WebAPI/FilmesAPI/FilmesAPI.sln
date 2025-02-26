@@ -5,9 +5,7 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmesAPI", "FilmesAPI\FilmesAPI.csproj", "{7E1672BF-A6DE-4B18-8EB0-33B9681D217F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuariosApi", "UsuariosApi\UsuariosApi.csproj", "{4B3899C6-7185-4AF2-9B39-B7203DB54BFE}"
-EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactapp", "ReactApp\reactapp.esproj", "{07A28111-5005-453A-BF2D-3F7BB6D87456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuariosAPI", "UsuariosApi\UsuariosAPI.csproj", "{4B3899C6-7185-4AF2-9B39-B7203DB54BFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +21,6 @@ Global
 		{4B3899C6-7185-4AF2-9B39-B7203DB54BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B3899C6-7185-4AF2-9B39-B7203DB54BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B3899C6-7185-4AF2-9B39-B7203DB54BFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07A28111-5005-453A-BF2D-3F7BB6D87456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07A28111-5005-453A-BF2D-3F7BB6D87456}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07A28111-5005-453A-BF2D-3F7BB6D87456}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{07A28111-5005-453A-BF2D-3F7BB6D87456}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07A28111-5005-453A-BF2D-3F7BB6D87456}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07A28111-5005-453A-BF2D-3F7BB6D87456}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
