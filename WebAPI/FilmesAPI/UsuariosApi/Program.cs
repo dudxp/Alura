@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using System.Configuration;
 using UsuariosApi.Data;
 using UsuariosApi.Services;
@@ -18,8 +19,17 @@ builder.Services.AddScoped<LogoutService, LogoutService>();
 builder.Services.AddScoped<EmailService, EmailService>();
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddSwaggerGen(c => c
+                    .SwaggerDoc("v1", new OpenApiInfo { Title = "Usuarios API", Version = "v1" }));
 
 var app = builder.Build();
+
+if (builder.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage()
+       .UseSwagger()
+       .UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Usuario API"));
+}
 
 if (builder.Environment.IsDevelopment())
 {

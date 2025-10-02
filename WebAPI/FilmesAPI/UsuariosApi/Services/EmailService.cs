@@ -50,9 +50,9 @@ namespace UsuariosApi.Services
 
         private MimeMessage CriaCorpoEmail(Mensagem mensagem)
         {
+            var emailFrom = _configuration.GetValue<string>("EmailSettings:From");
             var mensagemEmail = new MimeMessage();
-            mensagemEmail.From.Add(new MailboxAddress(
-                _configuration.GetValue<string>("EmailSettings:From")));
+            mensagemEmail.From.Add(new MailboxAddress(emailFrom, emailFrom));
             mensagemEmail.To.AddRange(mensagem.Destinatario);
             mensagemEmail.Subject = mensagem.Assunto;
             mensagemEmail.Body = new TextPart(MimeKit.Text.TextFormat.Text)
